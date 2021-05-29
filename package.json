@@ -1,0 +1,28 @@
+{
+  "name": "pyl-utilities",
+  "version": "1.0.0",
+  "description": "Discord Bot for Practice Your Language Utilities.",
+  "main": "bot.js",
+  "scripts": {
+    "start": "nodex bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NomadApplications/PYL-Utilities.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NomadApplications/PYL-Utilities/issues"
+  },
+  "homepage": "https://github.com/NomadApplications/PYL-Utilities#readme",
+  "dependencies": {
+    "canvas": "^2.8.0",
+    "discord.js": "^12.5.3",
+    "ms": "^2.1.2",
+    "node-fetch": "^2.6.1",
+    "node-schedule": "^2.0.0",
+    "puppeteer": "^9.1.1",
+    "quick.db": "^7.1.2"
+  }
+}
