@@ -837,7 +837,7 @@ client.on("guildMemberAdd", async member => {
     context.lineWidth = 1;
     context.strokeStyle = "#000000";
     
-    context.font = applyText(canvas, member.displayName);
+    context.font = context.font = `bold 69px Verdana`;
     context.fillStyle = '#ffffff';
     context.fillText("WELCOME", canvas.width/2-200, canvas.height/2+100);
     context.fillText(`${member.displayName}#${member.user.discriminator}`, canvas.width/2 - context.measureText(`${member.displayName}#${member.user.discriminator}`).width/2, canvas.height/2+200);
