@@ -3,7 +3,8 @@ const client = new Discord.Client();
 
 require("dotenv").config();
 
-const db = require("quick.db");
+const quickdb = require("quick.db");
+const db = quickdb("./db/json.sqlite")
 const schedule = require("node-schedule");
 const fetch = require("node-fetch");
 const puppeteer = require("puppeteer");
@@ -832,7 +833,7 @@ client.on("guildMemberAdd", async member => {
     const g = client.guilds.cache.get("793202043703001098");
     client.user.setActivity(g.memberCount + " Members in PYL! My prefix is '>'", { type: "WATCHING" });
     
-    const c = member.guild.channels.cache.find(channel => channel.id === "846861547312644128");
+    const c = member.guild.channels.cache.find(channel => channel.id === "793202044500049958");
     
     let sizeX = 1280;
     let sizeY = 878;
