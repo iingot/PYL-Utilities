@@ -4,7 +4,6 @@ const client = new Discord.Client();
 require("dotenv").config();
 
 const quickdb = require("quick.db");
-const db = quickdb("./db/json.sqlite")
 const schedule = require("node-schedule");
 const fetch = require("node-fetch");
 const puppeteer = require("puppeteer");
