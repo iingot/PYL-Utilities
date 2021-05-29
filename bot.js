@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+require("dotenv").config();
+
 const db = require("quick.db");
 const schedule = require("node-schedule");
 const fetch = require("node-fetch");
@@ -22,7 +24,7 @@ client.on("ready", () => {
     if(db.get("infractions") === null){
         db.set("infractions", {v: "."});
     }
-    const g = client.guilds.cache.get("846413849351290962");
+    const g = client.guilds.cache.get("793202043703001098");
     client.user.setActivity(g.memberCount + " Members in PYL! My prefix is '>'", { type: "WATCHING" });
 });
 
@@ -840,8 +842,9 @@ client.on("guildMemberAdd", async member => {
     context.font = context.font = `bold 69px Verdana`;
     context.fillStyle = '#ffffff';
     context.fillText("WELCOME", canvas.width/2-200, canvas.height/2+100);
-    context.fillText(`${member.displayName}#${member.user.discriminator}`, canvas.width/2 - context.measureText(`${member.displayName}#${member.user.discriminator}`).width/2, canvas.height/2+200);
     context.strokeText("WELCOME", canvas.width/2-200, canvas.height/2+100);
+    context.font = applyText(canvas, member.displayName);
+    context.fillText(`${member.displayName}#${member.user.discriminator}`, canvas.width/2 - context.measureText(`${member.displayName}#${member.user.discriminator}`).width/2, canvas.height/2+200);
     context.strokeText(`${member.displayName}#${member.user.discriminator}`, canvas.width/2 - context.measureText(`${member.displayName}#${member.user.discriminator}`).width/2, canvas.height/2+200);
     
     context.beginPath();
@@ -873,7 +876,7 @@ client.on("guildMemberAdd", async member => {
     var what_to_do = member.guild.channels.cache.get("813173309004316713").toString();
     var rules = member.guild.channels.cache.get("793202044500049959").toString();
     var help = member.guild.channels.cache.get("812700884256686110").toString();
-    
+
     c.send("Hey, " + idToMention(member.user.id) + " and thanks for visiting Practice Your Language! 👋 We hope you enjoy your time here. 😄 Have a look at " + what_to_do + " to learn how to begin using this server. Even though they can be boring, don't forget to have a look at the " + rules + ". 😉 If you need help or ever need to quickly get in touch with the staff, you can open a ticket in " + help +".\n\nMost importantly, have fun in the server and enjoy your time here!\n\nYou are the " + memberNumber + " member of this server.", attachment);
 });
 
