@@ -129,7 +129,13 @@ client.on("message", message => {
     if(args[0] === prefix + "addlangs"){
         const select_language = message.guild.channels.cache.get("806950608711712839").toString();
         const select_fluent = message.guild.channels.cache.get("807002294201483264").toString();
-        channel.send("Languages can be added in " + select_language + " and " + select_fluent + ". Once you select roles, the language channels you selected will be visible to you.");
+        message.channel.send("Languages can be added in " + select_language + " and " + select_fluent + ". Once you select roles, the language channels you selected will be visible to you.");
+    } else if (args[0] === prefix + "forcetopic"){
+        if(!message.member.hasPermission("KICK_MEMBER")) return;
+        topic();
+    } else if (args[0] === prefix + "forcefact"){
+        if(!message.member.hasPermission("KICK_MEMBER")) return;
+        fact();
     } else if (args[0] === prefix + "topic"){
         if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")){
             return;
@@ -813,6 +819,8 @@ function help_command(message, args){
     admin.addField(">infractions {@member}", "See all of the warnings a member has", false);
     admin.addField(">topic [toggle, status, add, remove, list]", "All of the topic commands", false);
     admin.addField(">fact [toggle, status, add, remove, list]", "All of the fact commands", false);
+    admin.addField(">forcefact", "Force the announcement of the fact of the day", false);
+    admin.addField(">forcetopic", "Force the announcement of the topic of the day", false);
 
     message.member.send(embed);
     if(message.member.hasPermission("KICK_MEMBERS")){
